@@ -4,11 +4,14 @@
 	<title>研華科技-iEMS能源管理系統</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
 	<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 	<script src="https://kit.fontawesome.com/11dea7135c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
@@ -30,124 +33,417 @@
 		  </div>
 		</div>
 	  </nav>
-      <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">設備名稱</label>
-          <select class="form-select" id="equipment" required>
-            <option selected disabled value="">選擇設備</option>
-            <option>鍋爐</option>
-            <option>冰水主機</option>
-            <option>空調系統</option>
-            <option>電燈</option>
-            <option>熱泵、水泵</option>
-            <option>電梯</option>
-          </select>
-          <div class="invalid-feedback">
-           請選擇設備
-          </div>
+
+    <div class="container">
+    <div class="row">
+    <h1 class="col-auto me-auto">我的設備</h1>
+    <button type="button" class=" btn btn-success  col-auto" data-bs-toggle="modal" data-bs-target="#exampleModal" dis>
+        <i class="fa-solid fa-circle-plus"></i>  新增設備   
+      </button>
+    </div>
+    <!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">添加設備</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="col-md-6">
-          <label for="validationCustom02" class="form-label">型號</label>
-          <input type="text" class="form-control" id="modle" value="" required>
-          <div class="invalid-feedback">
-            請輸入設備型號
-          </div>
+        <div class="modal-body  modal-dialog-centered modal-dialog-scrollable">
+            <form class="row g-3 needs-validation"  id = "myform" novalidate>
+                <div class="col-md-6">
+                  <label for="validationCustom01"  class="form-label">設備名稱</label>  
+                  <select class="form-select" id="equipment" required>
+                    <option selected disabled value="">選擇設備</option>
+                    <option>鍋爐</option>
+                    <option>冰水主機</option>
+                    <option>空調系統</option>
+                    <option>電燈</option>
+                    <option>熱泵、水泵</option>
+                    <option>電梯</option>
+                  </select>
+                  <div class="invalid-feedback">
+                   請選擇設備
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustom02" class="form-label">型號</label>
+                  <input type="text" class="form-control" id="modle" value="" required>
+                  <div class="invalid-feedback">
+                    請輸入設備型號
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label" title="(kw/台)" data-toggle="tooltip">電功率</label>
+                  <div class="input-group has-validation">
+                    <input type="number" class="form-control" id="power" min="0" aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                    請輸入設備電功率(大於0)
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom03" class="form-label">數量</label>
+                  <input type="number" class="form-control" min="0" id="number" required>
+                  <div class="invalid-feedback">
+                    請輸入設備數量<br>(大於0)
+                  </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom03" title="(hr/年)" data-toggle="tooltip" class="form-label">運轉時數</label>
+                    <input type="number" class="form-control" min="0" max="8760"id="time" required>
+                    <div class="invalid-feedback">
+                      請輸入設備運轉時數
+                    </div>
+                  </div>
+                <div class="col-md-4">
+                  <label for="validationCustom04" class="form-label">年份</label>
+                  <input  type="number" class="form-control" id="year" min="0"  required>
+                  <div class="invalid-feedback">
+                    請輸入設備年份
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom05" class="form-label">區域</label>
+                  <input type="text" class="form-control" id="area" required>
+                  <div class="invalid-feedback">
+                    請輸入設備區域
+                  </div>
+                </div>
+                <div class="col-12">          
+                    <label class="form-check-label" >
+                      特殊加權
+                    </label>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch1" value="1">
+                        <label class="form-check-label" >該項設備可以使⽤可再⽣能源（如：太陽能、⾵⼒）</label>
+                      </div>
+                      <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch2" value="1">
+                        <label class="form-check-label" >該項設備涉及相關法規訂定能源效率標準</label>
+                      </div>
+                      <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch3" value="1">
+                        <label class="form-check-label" >該項設備已訂有節能標章或為供應空調相關設備</label>
+                      </div>
+                      <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch4" value="1" >
+                        <label class="form-check-label" >其他</label>
+                      </div>
+                </div>
+              </form>
         </div>
-        <div class="col-md-3">
-          <label for="validationCustomUsername" class="form-label">電功率(kw/台)</label>
-          <div class="input-group has-validation">
-            <input type="number" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-            <div class="invalid-feedback">
-            請輸入設備電功率
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id= "close"data-bs-dismiss="modal">關閉</button>
+          <button type="button" class="btn btn-primary"  type="submit" id="sub">確認輸入</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <table class="table   table-striped table-hover" id="mytable">
+            <thead>
+              <tr>
+                <th scope="col">設備名稱</th>
+                <th scope="col">設備型號</th>
+                <th scope="col">設備電功率</th>
+                <th scope="col">設備數量</th>
+                <th scope="col">運作時數</th>
+                <th scope="col">設備年份</th>
+                <th scope="col">設備耗電量</th>
+                <th scope="col">設備耗能值</th>
+                <th scope="col">設備老舊度</th>
+                <th scope="col">設備運轉度</th>
+                <th scope="col">特殊加權</th>
+                <th scope="col">評分</th>
+                <th scope="col">區域</th>
+                <th scope="col">優先性</th>
+              </tr>
+            </thead >
+            <tbody id="my_insert">
+            </tbody>
+          </table> 
+          <div class="container-fluid">
+            <div class="row" style="height: 500px;">
+              <div class="col-md-8" style="height: 500px;">
+                <div id="piechart" style="height: 100%;"></div>
+              </div>
+              <div class="col-md-4">
+                <div class="parent">
+                  <div class="row" >
+                    <h3 id="total_power"></h3>
+                </div>
+                  <div class="row" >
+                    <h3 id="total_A"></h3>
+                </div>
+                  <div class="row">
+                    <h3 id="total_B"></h3>
+                </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <label for="validationCustom03" class="form-label">數量</label>
-          <input type="number" class="form-control" id="number" required>
-          <div class="invalid-feedback">
-            請輸入設備數量
-          </div>
-        </div>
-        <div class="col-md-3">
-          <label for="validationCustom04" class="form-label">年份</label>
-          <input  type="number" class="form-control" id="year" min="1800" max="2023" required>
-          <div class="invalid-feedback">
-            請輸入設備年份(1800-2023)
-          </div>
-        </div>
-        <div class="col-md-3">
-          <label for="validationCustom05" class="form-label">區域</label>
-          <input type="text" class="form-control" id="area" required>
-          <div class="invalid-feedback">
-            請輸入設備區域
-          </div>
-        </div>
-        <div class="col-12">          
-            <label class="form-check-label" for="invalidCheck">
-              特殊加權
-            </label>
-            <div class="form-check ">
-                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch1" value="option1">
-                <label class="form-check-label" >該項設備可以使⽤可再⽣能源（如：太陽能、⾵⼒）</label>
-              </div>
-              <div class="form-check ">
-                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch2" value="option2">
-                <label class="form-check-label" >該項設備涉及相關法規訂定能源效率標準</label>
-              </div>
-              <div class="form-check ">
-                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch3" value="option3">
-                <label class="form-check-label" >該項設備已訂有節能標章或為供應空調相關設備</label>
-              </div>
-              <div class="form-check ">
-                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch4" value="option4" >
-                <label class="form-check-label" >其他</label>
-              </div>
-              <div class="invalid-feedback">
-                請輸入設備區域
-              </div>
-        </div>
+</div>
 
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">新增設備</button>
-        </div>
-      </form>
+  
+
 </body>
+
 </html>
 
 <script>
- 
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-     
-    (function () {
-     
-      'use strict'
-     
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-     
-      var forms = document.querySelectorAll('.needs-validation')
-     
-      // Loop over them and prevent submission
-     
-      Array.prototype.slice.call(forms)
-     
-        .forEach(function (form) {
-     
-          form.addEventListener('submit', function (event) {
-     
-            if (!form.checkValidity()) {
-     
-              event.preventDefault()
-     
-              event.stopPropagation()
-     
+ $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+    $( "#sub" ).click(function() {
+        $("#myform").addClass('was-validated');
+        var name = $("#equipment").val();
+        var modle = $("#modle").val();
+        var power = $("#power").val();
+        var number = $("#number").val();
+        var time = $("#time").val();
+        var year = $("#year").val();
+        var area = $("#area").val();
+        var myarr =[];
+        var input = '<tr>';
+        var need_power = 
+        myarr.push(name);
+        myarr.push(modle);
+        myarr.push(power);
+        myarr.push(number);
+        myarr.push(time);
+        myarr.push(year);
+        myarr.push(area);
+        for (let index=0; index < myarr.length; index++) 
+        {
+            if (myarr[index] == '') 
+            {
+                return 0 ;
             }
-            form.classList.add('was-validated')
-     
-          }, false)
-     
-        })
-     
-    })()
-     
+        }
+        input +="<td id=t_name>";
+        input +=name;
+
+        input +="</td>";
+        input +="<td>";
+        input +=modle;
+
+        input +="</td>";
+        input +="<td>";
+        input +=power;
+
+        input +="</td>";
+        input +="<td>";
+        input +=number;
+
+        input +="</td>";
+        input +="<td>";
+        input +=time;
+
+        input +="</td>";
+        input +="<td>";
+        input +=year;
+        input +="</td>";
+        input +="<td id=t_uasge>";
+        input +=power*number*time;
+
+        input +="</td>";
+        var my_point1;
+        if (power*number*time >= 100000) {
+            my_point1 = 5;
+        }
+        else if (power*number*time >=50000)
+        {
+            my_point1 = 4;
+        }
+        else if (power*number*time >=10000)
+        {
+            my_point1 = 3;
+        }
+        else if (power*number*time >=5000)
+        {
+            my_point1 = 2;
+        }
+        else
+        {
+            my_point1 = 1;
+        }
+        input +="<td>";
+        input +=my_point1;
+        input +="</td>";
+
+        var my_point2;
+        if(year>10)
+        {
+            my_point2 = 5;
+        }
+        else if(year>5)
+        {
+            my_point2 = 4;
+        }
+        else if(year>3)
+        {
+            my_point2 = 3;
+        }
+        else if(year>1)
+        {
+            my_point2 = 2;
+        }
+        else
+        {
+            my_point2 = 1;
+        }
+        input +="<td>";
+        input +=my_point2;
+        input +="</td>";
+        var my_point3;
+        if(time>5840)
+        {
+            my_point3 = 5;
+        }
+        else if(time>4380)
+        {
+            my_point3 = 4;
+        }
+        else if(time>2920)
+        {
+            my_point3 = 3;
+        }
+        else if(time>1460)
+        {
+            my_point3 = 2;
+        }
+        else
+        {
+            my_point3 = 1;
+        }  
+        input +="<td>";
+        input +=my_point3;
+        input +="</td>";     
+        var my_point4=0;
+        if($("#ch1").is(":checked"))
+        {
+            my_point4+=5;
+        }
+        if($("#ch2").is(":checked"))
+        {
+            my_point4+=4;
+        }
+        if($("#ch3").is(":checked"))
+        {
+            my_point4+=3;
+        }
+        if($("#ch4").is(":checked"))
+        {
+            my_point4+=2;
+        }
+        input +="<td>";
+        input +=my_point4;
+        input +="</td>";  
+        var total = my_point4*0.1+my_point3*0.35+my_point2*0.2+my_point1*0.35;
+        input +="<td>";
+        input +=total.toFixed(2);
+        input +="</td>"; 
+        input +="<td>";
+        input +=area;
+        input +="</td>";   
+        input +="<td id=t_level>";
+        if(total>4)
+        {
+            input +="A";
+        }
+        else
+        {
+            input +="B";
+        }
+        input +="</td>";  
+        input +="</tr>";
+        $("#my_insert").append(input);
+        $("#equipment").val("") ;
+        $("#modle").val("");
+        $("#power").val("");
+        $("#number").val("");
+        $("#time").val("");
+        $("#year").val("");
+        $("#area").val("");
+        $("#ch4").prop('checked', false);
+        $("#ch3").prop('checked', false);
+        $("#ch2").prop('checked', false);
+        $("#ch1").prop('checked', false);
+        $("#myform").removeClass('was-validated');
+        $("#close").click();
+        google.charts.setOnLoadCallback(drawChart);
+    });
+    google.charts.load('current', {'packages':['corechart']});
+      function drawChart() {
+
+var q1 = 0;
+var q2 = 0;
+var q3 = 0;
+var q4 = 0;
+var q5 = 0;
+var q6 = 0;
+var A=0;
+var B=0;
+var toatl =0;
+$('#mytable tr').each(function() {
+  var myTd1 = $(this).find('#t_name');
+  var myTd2 = $(this).find('#t_uasge');
+  var myTd3 = $(this).find('#t_level');
+  if(myTd1.text() == '鍋爐')
+  {
+    q1+=parseInt(myTd2.text());
+  }
+  if(myTd1.text() == '冰水主機')
+  {
+    q2+=parseInt(myTd2.text());
+  }
+  if(myTd1.text() == '空調系統')
+  {
+    q3+=parseInt(myTd2.text());
+  }
+  if(myTd1.text() == '電燈')
+  {
+    q4+=parseInt(myTd2.text());
+  }
+  if(myTd1.text() == '熱泵、水泵')
+  {
+    q5+=parseInt(myTd2.text());
+  }
+  if(myTd1.text() == '電梯')
+  {
+    q6+=parseInt(myTd2.text());
+  }
+  if (myTd3.text() == 'A') {
+    A++;
+    
+  }
+  else if(myTd3.text() == 'B')
+  {
+    B++;
+  }
+
+});
+        toatl = q1+q2+q3+q4+q5+q6;
+
+        var data = google.visualization.arrayToDataTable([
+          ['項目', '千瓦'],
+          ['鍋爐',   q1],
+          ['冰水主機',  q2],
+          ['空調系統',  q3],
+          ['電燈', q4],
+          ['熱泵、水泵',q5],
+          ['電梯',    q6]
+        ]);
+        var options = {
+          title: '使用分佈',height: '500'
+        };
+        $('#total_power').html("共消耗"+toatl+"kw");
+        $('#total_A').html("共有"+A+"個A級項目");
+        $('#total_B').html("共有"+B+"個B級項目");
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    
     </script>
