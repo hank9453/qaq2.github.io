@@ -24,7 +24,7 @@
 				<a class="nav-link active" aria-current="page" href="#">首頁</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">試算設備</a>
+				<a class="nav-link" href="count.html">試算設備</a>
 			  </li>
 			</ul>
 		  </div>
@@ -142,18 +142,14 @@
 			const scroller = new LocomotiveScroll({
 				el: document.querySelector("[data-scroll-container]"),
 				smooth: true,
-         class: "is-reveal",
-        mobile:{
-            breakpoint:0,
-            smooth: true,
-            multiplier: 15,
-            class: "is-reveal",
-        },
-        tablet:{
-            smooth: true,
-            class: "is-reveal",
-        }
+				mobile: {
+			smooth: true
+		},
+		tablet: {
+			smooth: true
+		}
 			});
+			scroller.update();
 
 		};
 	  </script>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>華研科技-iEMS能源管理系統</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+	<script src="https://kit.fontawesome.com/11dea7135c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light ">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#">
+			<img src="picture/截圖 2023-04-03 下午2.19.04.png" alt="" width="30" height="24">
+			華研科技
+		  </a>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+			  <li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="index.html">首頁</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" href="#">試算設備</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+      <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">設備名稱</label>
+          <select class="form-select" id="equipment" required>
+            <option selected disabled value="">選擇設備</option>
+            <option>鍋爐</option>
+            <option>冰水主機</option>
+            <option>空調系統</option>
+            <option>電燈</option>
+            <option>熱泵、水泵</option>
+            <option>電梯</option>
+          </select>
+          <div class="invalid-feedback">
+           請選擇設備
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom02" class="form-label">型號</label>
+          <input type="text" class="form-control" id="modle" value="" required>
+          <div class="invalid-feedback">
+            請輸入設備型號
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustomUsername" class="form-label">電功率(kw/台)</label>
+          <div class="input-group has-validation">
+            <input type="number" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+            <div class="invalid-feedback">
+            請輸入設備電功率
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom03" class="form-label">數量</label>
+          <input type="number" class="form-control" id="number" required>
+          <div class="invalid-feedback">
+            請輸入設備數量
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom04" class="form-label">年份</label>
+          <input  type="number" class="form-control" id="year" min="1800" max="2023" required>
+          <div class="invalid-feedback">
+            請輸入設備年份
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom05" class="form-label">區域</label>
+          <input type="text" class="form-control" id="area" required>
+          <div class="invalid-feedback">
+            請輸入設備區域
+          </div>
+        </div>
+        <div class="col-12">          
+            <label class="form-check-label" for="invalidCheck">
+              特殊加權
+            </label>
+            <div class="form-check ">
+                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch1" value="option1">
+                <label class="form-check-label" >該項設備可以使⽤可再⽣能源（如：太陽能、⾵⼒）</label>
+              </div>
+              <div class="form-check ">
+                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch2" value="option2">
+                <label class="form-check-label" >該項設備涉及相關法規訂定能源效率標準</label>
+              </div>
+              <div class="form-check ">
+                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch3" value="option3">
+                <label class="form-check-label" >該項設備已訂有節能標章或為供應空調相關設備</label>
+              </div>
+              <div class="form-check ">
+                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ch4" value="option4" >
+                <label class="form-check-label" >其他</label>
+              </div>
+              <div class="invalid-feedback">
+                請輸入設備區域
+              </div>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+      </form>
+</body>
+</html>
+
+<script>
+ 
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+     
+    (function () {
+     
+      'use strict'
+     
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+     
+      var forms = document.querySelectorAll('.needs-validation')
+     
+      // Loop over them and prevent submission
+     
+      Array.prototype.slice.call(forms)
+     
+        .forEach(function (form) {
+     
+          form.addEventListener('submit', function (event) {
+     
+            if (!form.checkValidity()) {
+     
+              event.preventDefault()
+     
+              event.stopPropagation()
+     
+            }
+            form.classList.add('was-validated')
+     
+          }, false)
+     
+        })
+     
+    })()
+     
+    </script>
