@@ -6,4 +6,4 @@
 | Jquery  | 3.6.4 |
 | locomotive-scroll| 4.1.4 |
 | fontawesome| 6.4.0 |
-| googlecart|-  |
+| googlechart|-  |
