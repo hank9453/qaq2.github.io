@@ -1,5 +1,5 @@
 # qaq2.github.io
-## include Libarary
+## Include Library
 | Name  | version |
 | ------------- | ------------- |
 | Bootstrap  | 5.2.3 |
