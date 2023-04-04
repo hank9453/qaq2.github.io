@@ -16,24 +16,6 @@ h1 {
   font-size: 70px;
 }
 
-.section-2 {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-columns: 40% 60%;
-}
-.section-2 .images-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 0 8px;
-  gap: 8px;
-}
-.section-2 .images-container img {
-  width: 100%;
-  max-height: 70vh;
-  height: 100%;
-  align-self: stretch;
-  object-fit: cover;
-}
 .parent {
   display: flex;
   flex-direction: column;

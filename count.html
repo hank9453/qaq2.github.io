@@ -164,13 +164,16 @@
             <tbody id="my_insert">
             </tbody>
           </table> 
-          <div class="container-fluid">
-            <div class="row" style="height: 500px;">
-              <div class="col-md-8" style="height: 500px;">
-                <div id="piechart" style="height: 100%;"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-12"  style="height: 500px;">
+                <div id="piechart"></div>
               </div>
-              <div class="col-md-4">
+              <div class="col-lg-4 col-md-12">
                 <div class="parent">
+                  <div class="row" >
+                    <h3 id="my_rank"></h3>
+                </div>
                   <div class="row" >
                     <h3 id="total_power"></h3>
                 </div>
@@ -342,7 +345,7 @@
         input +=my_point4;
         input +="</td>";  
         var total = my_point4*0.1+my_point3*0.35+my_point2*0.2+my_point1*0.35;
-        input +="<td>";
+        input +="<td id=rank>";
         input +=total.toFixed(2);
         input +="</td>"; 
         input +="<td>";
@@ -386,11 +389,14 @@ var q5 = 0;
 var q6 = 0;
 var A=0;
 var B=0;
+var a_rank = 0;
+var b_rank = 0;
 var toatl =0;
 $('#mytable tr').each(function() {
   var myTd1 = $(this).find('#t_name');
   var myTd2 = $(this).find('#t_uasge');
   var myTd3 = $(this).find('#t_level');
+  var myTd4 = $(this).find('#rank');
   if(myTd1.text() == '鍋爐')
   {
     q1+=parseInt(myTd2.text());
@@ -417,16 +423,45 @@ $('#mytable tr').each(function() {
   }
   if (myTd3.text() == 'A') {
     A++;
-    
+    a_rank +=parseFloat(myTd4.text());
   }
   else if(myTd3.text() == 'B')
   {
     B++;
+    b_rank +=parseFloat(myTd4.text());
   }
 
 });
         toatl = q1+q2+q3+q4+q5+q6;
-
+        var rank = "您的飯店評級為";
+        var rankpoint;
+        if(b_rank )
+        {
+          if(a_rank)
+          {
+            rankpoint = (a_rank/A)*0.7+(b_rank/B)*0.3;
+          }
+          else
+          {
+            rankpoint = (b_rank/B)*0.3;
+          }
+        }
+        else
+        {
+          rankpoint = (a_rank/A)*0.7;
+        }
+        if(rankpoint >= 4)
+        {
+          rank += '<span style="color: #FFC000;">注意<span>';
+        } 
+        else if ( rankpoint  >= 3.5)
+        {
+          rank += '<span style="color: #00B050;">正常<span>';
+        }
+        else
+        {
+          rank += '<span style="color: #0070C0;">優良<span>';
+        }
         var data = google.visualization.arrayToDataTable([
           ['項目', '千瓦'],
           ['鍋爐',   q1],
@@ -439,6 +474,8 @@ $('#mytable tr').each(function() {
         var options = {
           title: '使用分佈',height: '500'
         };
+
+        $('#my_rank').html(rank);
         $('#total_power').html("共消耗"+toatl+"kw");
         $('#total_A').html("共有"+A+"個A級項目");
         $('#total_B').html("共有"+B+"個B級項目");
