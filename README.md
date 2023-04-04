@@ -1,6 +1,6 @@
 # qaq2.github.io
 ## Include Library
-| Name  | version |
+| Name  | Version |
 | ------------- | ------------- |
 | Bootstrap  | 5.2.3 |
 | Jquery  | 3.6.4 |
