@@ -11,7 +11,9 @@
 	<script src="https://kit.fontawesome.com/11dea7135c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	
 </head>
 <body>
     <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light ">
@@ -30,7 +32,653 @@
 			  </li>
 			</ul>
 		  </div>
+		  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >申請產品試用</button>
 		</div>
 	  </nav>
+	  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">申請產品試用</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			<p>完成表單填寫後將啟動 iEMS的試用申請作業。 <span style="color: red;">*Required</span></p>
+			            <form class="row g-3 needs-validation"  id = "myform" novalidate>
+				<div class="col-md-6">
+					<label for="validationCustom02" class="form-label">名字<span style="color: red;">*</span></label>
+					<input type="text" class="form-control" id="modle" value="" required>
+					<div class="invalid-feedback">
+						請輸入名字
+					</div>
+				</div>
+				<div class="col-md-6">
+					<label for="validationCustom02" class="form-label">姓氏<span style="color: red;">*</span></label>
+					<input type="text" class="form-control" id="modle" value="" required>
+					<div class="invalid-feedback">
+						請輸入姓氏
+					</div>
+				</div>
+				<div class="col-md-6">
+					<label for="validationCustom02" class="form-label">電子郵件<span style="color: red;">*</span></label>
+					<input type="text" class="form-control" placeholder="example@example.com" id="modle" value="" required>
+					<div class="invalid-feedback">
+						請輸入電子郵件
+					</div>
+				</div>
+				<div class="col-md-6">
+					<label for="validationCustom02" class="form-label">電話號碼<span style="color: red;">*</span></label>
+					<input type="number" class="form-control" id="modle" value="" required>
+					<div class="invalid-feedback">
+						請輸入電話號碼
+					</div>
+				</div>
+				<div class="col-md-6">
+					<label for="validationCustom02" class="form-label">公司名<span style="color: red;">*</span></label>
+					<input type="text" class="form-control" id="modle" value="" required>
+					<div class="invalid-feedback">
+						請輸入公司名
+					</div>
+				</div>
+				<div class="col-md-6">
+					<label for="validationCustom02" class="form-label">國家/區域<span style="color: red;">*</span></label>
+					<select data-v-41ce51af="" id="form_country" class="form-select" >
+						<option selected disabled value="">
+						請選擇您的國家/地區
+					  </option> <option data-v-41ce51af="">
+					Afghanistan
+				  </option><option data-v-41ce51af="">
+					Albania
+				  </option><option data-v-41ce51af="">
+					Algeria
+				  </option><option data-v-41ce51af="">
+					Andorra
+				  </option><option data-v-41ce51af="">
+					Angola
+				  </option><option data-v-41ce51af="">
+					Anguilla
+				  </option><option data-v-41ce51af="">
+					Antarctica
+				  </option><option data-v-41ce51af="">
+					Antigua and Barbuda
+				  </option><option data-v-41ce51af="">
+					Argentina
+				  </option><option data-v-41ce51af="">
+					Armenia
+				  </option><option data-v-41ce51af="">
+					Aruba
+				  </option><option data-v-41ce51af="">
+					Australia
+				  </option><option data-v-41ce51af="">
+					Austria
+				  </option><option data-v-41ce51af="">
+					Azerbaijan
+				  </option><option data-v-41ce51af="">
+					Bahamas
+				  </option><option data-v-41ce51af="">
+					Bahrain
+				  </option><option data-v-41ce51af="">
+					Bangladesh
+				  </option><option data-v-41ce51af="">
+					Barbados
+				  </option><option data-v-41ce51af="">
+					Belarus
+				  </option><option data-v-41ce51af="">
+					Belgium
+				  </option><option data-v-41ce51af="">
+					Belize
+				  </option><option data-v-41ce51af="">
+					Benin
+				  </option><option data-v-41ce51af="">
+					Bermuda
+				  </option><option data-v-41ce51af="">
+					Bhutan
+				  </option><option data-v-41ce51af="">
+					Bolivia
+				  </option><option data-v-41ce51af="">
+					Bosnia and Herzegovina
+				  </option><option data-v-41ce51af="">
+					Botswana
+				  </option><option data-v-41ce51af="">
+					Brazil
+				  </option><option data-v-41ce51af="">
+					Brunei
+				  </option><option data-v-41ce51af="">
+					Bulgaria
+				  </option><option data-v-41ce51af="">
+					Burkina Faso
+				  </option><option data-v-41ce51af="">
+					Burundi
+				  </option><option data-v-41ce51af="">
+					Cambodia
+				  </option><option data-v-41ce51af="">
+					Cameroon
+				  </option><option data-v-41ce51af="">
+					Canada
+				  </option><option data-v-41ce51af="">
+					Cape Verde Islands
+				  </option><option data-v-41ce51af="">
+					Cayman Islands
+				  </option><option data-v-41ce51af="">
+					Central African Republic
+				  </option><option data-v-41ce51af="">
+					Chad
+				  </option><option data-v-41ce51af="">
+					Chile
+				  </option><option data-v-41ce51af="">
+					China
+				  </option><option data-v-41ce51af="">
+					Cocos (Keeling) Islands
+				  </option><option data-v-41ce51af="">
+					Colombia
+				  </option><option data-v-41ce51af="">
+					Comoros
+				  </option><option data-v-41ce51af="">
+					Congo
+				  </option><option data-v-41ce51af="">
+					Cook Islands
+				  </option><option data-v-41ce51af="">
+					Costa Rica
+				  </option><option data-v-41ce51af="">
+					Croatia
+				  </option><option data-v-41ce51af="">
+					Cuba
+				  </option><option data-v-41ce51af="">
+					Cyprus
+				  </option><option data-v-41ce51af="">
+					Czech Republic
+				  </option><option data-v-41ce51af="">
+					Denmark
+				  </option><option data-v-41ce51af="">
+					Djibouti
+				  </option><option data-v-41ce51af="">
+					Dominica
+				  </option><option data-v-41ce51af="">
+					Dominican Republic
+				  </option><option data-v-41ce51af="">
+					East Timor
+				  </option><option data-v-41ce51af="">
+					Ecuador
+				  </option><option data-v-41ce51af="">
+					Egypt
+				  </option><option data-v-41ce51af="">
+					El Salvador
+				  </option><option data-v-41ce51af="">
+					Equatorial Guinea
+				  </option><option data-v-41ce51af="">
+					Eritrea
+				  </option><option data-v-41ce51af="">
+					Estonia
+				  </option><option data-v-41ce51af="">
+					Ethiopia
+				  </option><option data-v-41ce51af="">
+					Falkland Islands (MALVINAS)
+				  </option><option data-v-41ce51af="">
+					Faroe Islands
+				  </option><option data-v-41ce51af="">
+					Fiji
+				  </option><option data-v-41ce51af="">
+					Finland
+				  </option><option data-v-41ce51af="">
+					France
+				  </option><option data-v-41ce51af="">
+					French Guiana
+				  </option><option data-v-41ce51af="">
+					Gabon
+				  </option><option data-v-41ce51af="">
+					Gambia
+				  </option><option data-v-41ce51af="">
+					Georgia
+				  </option><option data-v-41ce51af="">
+					Germany
+				  </option><option data-v-41ce51af="">
+					Ghana
+				  </option><option data-v-41ce51af="">
+					Gibraltar
+				  </option><option data-v-41ce51af="">
+					Greece
+				  </option><option data-v-41ce51af="">
+					Greenland
+				  </option><option data-v-41ce51af="">
+					Grenada
+				  </option><option data-v-41ce51af="">
+					Guadeloupe
+				  </option><option data-v-41ce51af="">
+					Guam
+				  </option><option data-v-41ce51af="">
+					Guatemala
+				  </option><option data-v-41ce51af="">
+					Guinea
+				  </option><option data-v-41ce51af="">
+					Guinea-Bissau
+				  </option><option data-v-41ce51af="">
+					Guyana
+				  </option><option data-v-41ce51af="">
+					Haiti
+				  </option><option data-v-41ce51af="">
+					Honduras
+				  </option><option data-v-41ce51af="">
+					Hong Kong
+				  </option><option data-v-41ce51af="">
+					Hungary
+				  </option><option data-v-41ce51af="">
+					Iceland
+				  </option><option data-v-41ce51af="">
+					India
+				  </option><option data-v-41ce51af="">
+					Indonesia
+				  </option><option data-v-41ce51af="">
+					Iran
+				  </option><option data-v-41ce51af="">
+					Iraq
+				  </option><option data-v-41ce51af="">
+					Ireland
+				  </option><option data-v-41ce51af="">
+					Israel
+				  </option><option data-v-41ce51af="">
+					Italy
+				  </option><option data-v-41ce51af="">
+					Ivory Coast
+				  </option><option data-v-41ce51af="">
+					Jamaica
+				  </option><option data-v-41ce51af="">
+					Japan
+				  </option><option data-v-41ce51af="">
+					Jordan
+				  </option><option data-v-41ce51af="">
+					Kazakhstan
+				  </option><option data-v-41ce51af="">
+					Kenya
+				  </option><option data-v-41ce51af="">
+					Kiribati
+				  </option><option data-v-41ce51af="">
+					Korea
+				  </option><option data-v-41ce51af="">
+					Korea (North)
+				  </option><option data-v-41ce51af="">
+					Kosovo
+				  </option><option data-v-41ce51af="">
+					Kuwait
+				  </option><option data-v-41ce51af="">
+					Kyrgyzstan
+				  </option><option data-v-41ce51af="">
+					Laos
+				  </option><option data-v-41ce51af="">
+					Latvia
+				  </option><option data-v-41ce51af="">
+					Lebanon
+				  </option><option data-v-41ce51af="">
+					Lesotho
+				  </option><option data-v-41ce51af="">
+					Liberia
+				  </option><option data-v-41ce51af="">
+					Libya
+				  </option><option data-v-41ce51af="">
+					Liechtenstein
+				  </option><option data-v-41ce51af="">
+					Lithuania
+				  </option><option data-v-41ce51af="">
+					Luxembourg
+				  </option><option data-v-41ce51af="">
+					Macao
+				  </option><option data-v-41ce51af="">
+					Madagascar
+				  </option><option data-v-41ce51af="">
+					Malawi
+				  </option><option data-v-41ce51af="">
+					Malaysia
+				  </option><option data-v-41ce51af="">
+					Maldives
+				  </option><option data-v-41ce51af="">
+					Mali
+				  </option><option data-v-41ce51af="">
+					Malta
+				  </option><option data-v-41ce51af="">
+					Marshall Islands
+				  </option><option data-v-41ce51af="">
+					Martinique
+				  </option><option data-v-41ce51af="">
+					Mauritania
+				  </option><option data-v-41ce51af="">
+					Mauritius
+				  </option><option data-v-41ce51af="">
+					Mexico
+				  </option><option data-v-41ce51af="">
+					Micronesia
+				  </option><option data-v-41ce51af="">
+					Moldova
+				  </option><option data-v-41ce51af="">
+					Monaco
+				  </option><option data-v-41ce51af="">
+					Mongolia
+				  </option><option data-v-41ce51af="">
+					Montenegro
+				  </option><option data-v-41ce51af="">
+					Montserrat
+				  </option><option data-v-41ce51af="">
+					Morocco
+				  </option><option data-v-41ce51af="">
+					Mozambique
+				  </option><option data-v-41ce51af="">
+					Myanmar
+				  </option><option data-v-41ce51af="">
+					Namibia
+				  </option><option data-v-41ce51af="">
+					Nauru
+				  </option><option data-v-41ce51af="">
+					Nepal
+				  </option><option data-v-41ce51af="">
+					Netherlands
+				  </option><option data-v-41ce51af="">
+					Netherlands Antilles
+				  </option><option data-v-41ce51af="">
+					Nevis
+				  </option><option data-v-41ce51af="">
+					New Caledonia
+				  </option><option data-v-41ce51af="">
+					New Zealand
+				  </option><option data-v-41ce51af="">
+					Nicaragua
+				  </option><option data-v-41ce51af="">
+					Niger
+				  </option><option data-v-41ce51af="">
+					Nigeria
+				  </option><option data-v-41ce51af="">
+					Niue
+				  </option><option data-v-41ce51af="">
+					Norfolk Island
+				  </option><option data-v-41ce51af="">
+					North Macedonia
+				  </option><option data-v-41ce51af="">
+					Northern Mariana Islands
+				  </option><option data-v-41ce51af="">
+					Norway
+				  </option><option data-v-41ce51af="">
+					Oman
+				  </option><option data-v-41ce51af="">
+					Pakistan
+				  </option><option data-v-41ce51af="">
+					Palau
+				  </option><option data-v-41ce51af="">
+					Palestine
+				  </option><option data-v-41ce51af="">
+					Panama
+				  </option><option data-v-41ce51af="">
+					Papua New Guinea
+				  </option><option data-v-41ce51af="">
+					Paraguay
+				  </option><option data-v-41ce51af="">
+					Peru
+				  </option><option data-v-41ce51af="">
+					Philippines
+				  </option><option data-v-41ce51af="">
+					Poland
+				  </option><option data-v-41ce51af="">
+					Portugal
+				  </option><option data-v-41ce51af="">
+					Puerto Rico
+				  </option><option data-v-41ce51af="">
+					Qatar
+				  </option><option data-v-41ce51af="">
+					Reunion
+				  </option><option data-v-41ce51af="">
+					Romania
+				  </option><option data-v-41ce51af="">
+					Russia
+				  </option><option data-v-41ce51af="">
+					Rwanda
+				  </option><option data-v-41ce51af="">
+					Saint Helena
+				  </option><option data-v-41ce51af="">
+					Saint Lucia
+				  </option><option data-v-41ce51af="">
+					Saint Vincent and the Grenadines
+				  </option><option data-v-41ce51af="">
+					Samoa
+				  </option><option data-v-41ce51af="">
+					San Marino
+				  </option><option data-v-41ce51af="">
+					Sao Tome and Principe
+				  </option><option data-v-41ce51af="">
+					Saudi Arabia
+				  </option><option data-v-41ce51af="">
+					Senegal
+				  </option><option data-v-41ce51af="">
+					Serbia
+				  </option><option data-v-41ce51af="">
+					Seychelles
+				  </option><option data-v-41ce51af="">
+					Sierra Leone
+				  </option><option data-v-41ce51af="">
+					Singapore
+				  </option><option data-v-41ce51af="">
+					Slovakia
+				  </option><option data-v-41ce51af="">
+					Slovenia
+				  </option><option data-v-41ce51af="">
+					Solomon Islands
+				  </option><option data-v-41ce51af="">
+					Somalia
+				  </option><option data-v-41ce51af="">
+					South Africa
+				  </option><option data-v-41ce51af="">
+					Spain
+				  </option><option data-v-41ce51af="">
+					Sri Lanka
+				  </option><option data-v-41ce51af="">
+					St. Kitts/Nevis
+				  </option><option data-v-41ce51af="">
+					Sudan
+				  </option><option data-v-41ce51af="">
+					Suriname
+				  </option><option data-v-41ce51af="">
+					Swaziland
+				  </option><option data-v-41ce51af="">
+					Sweden
+				  </option><option data-v-41ce51af="">
+					Switzerland
+				  </option><option data-v-41ce51af="">
+					Syria
+				  </option><option data-v-41ce51af="">
+					Taiwan
+				  </option><option data-v-41ce51af="">
+					Tajikistan
+				  </option><option data-v-41ce51af="">
+					Tanzania
+				  </option><option data-v-41ce51af="">
+					Thailand
+				  </option><option data-v-41ce51af="">
+					Togo
+				  </option><option data-v-41ce51af="">
+					Tonga
+				  </option><option data-v-41ce51af="">
+					Trinidad and Tobago
+				  </option><option data-v-41ce51af="">
+					Tunisia
+				  </option><option data-v-41ce51af="">
+					Turkiye
+				  </option><option data-v-41ce51af="">
+					Turkmenistan
+				  </option><option data-v-41ce51af="">
+					Uganda
+				  </option><option data-v-41ce51af="">
+					Ukraine
+				  </option><option data-v-41ce51af="">
+					United Arab Emirates
+				  </option><option data-v-41ce51af="">
+					United Kingdom
+				  </option><option data-v-41ce51af="">
+					United States
+				  </option><option data-v-41ce51af="">
+					Uruguay
+				  </option><option data-v-41ce51af="">
+					Uzbekistan
+				  </option><option data-v-41ce51af="">
+					Vanuatu
+				  </option><option data-v-41ce51af="">
+					Vatican City
+				  </option><option data-v-41ce51af="">
+					Venezuela
+				  </option><option data-v-41ce51af="">
+					Vietnam
+				  </option><option data-v-41ce51af="">
+					Virgin Islands (British)
+				  </option><option data-v-41ce51af="">
+					Virgin Islands (US)
+				  </option><option data-v-41ce51af="">
+					Yemen
+				  </option><option data-v-41ce51af="">
+					Zaire
+				  </option><option data-v-41ce51af="">
+					Zambia
+				  </option><option data-v-41ce51af="">
+					Zimbabwe
+				  </option></select>
+					<div class="invalid-feedback">
+						請輸入國家/區域
+					</div>
+				</div>
+				<div class="g-recaptcha" data-sitekey="6Lfzhq0UAAAAAOFMe17XrV6MLd7JCAy0xnbxtBGR"></div>
+              </form>
+			</div>
+			<div class="modal-footer d-flex justify-content-around">
+				<button type="button" class="btn btn-primary flex-grow-1" data-bs-dismiss="modal">送出</button>
+				<button type="button" class="btn btn-outline-primary flex-grow-1">取消</button>
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	  <header class="masthead">
+		<div class="container position-relative">
+			<div class="row justify-content-center">
+				<div class="col-xl-6">
+					<div class="text-center text-white">
+						<h2 id="hh1">⾮常好您有⼀個⾮常優良的設備狀態</h2>
+						<h2 id="hh2">想維持場域的能源健康，並進⼀步將低成本</h2>
+						<h2 >試試我們的產品</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="showcase">
+		<div class="container-fluid p-0">
+			<div class="row g-0" id="ecowatch" style="display:none;">
+				<div class="col-lg-6 order-lg-2 text-white showcase-img">
+				<Iframe src="https://advantech.wistia.com/medias/pz0od7mkq4"  width="100%" height="100% "  scrolling="NO" frameborder="0"	allowfullscreen></Iframe>
+				</div>
+				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+					<h2>iEMS ECO WATCH</h2>
+					<p class="lead mb-0">研華能源管理（ iEMS/ECOWatch ）實現水、電、氣等能耗資料的記錄和分析，是一款具備企業用能即時監測、分析與綜合診斷決策功能的能源管理系統。</p>
+				</div>
+			</div>
+			<div class="row g-0" id="d2" style="display:none;">
+				<div class="col-lg-6 text-white showcase-img">
+					<Iframe id="f2" src="https://advantech.wistia.com/medias/oe9wkfixxd"  width="100%" height="100% "  scrolling="NO" frameborder="0"	allowfullscreen></Iframe>
+				</div>
+				<div class="col-lg-6 my-auto showcase-text">
+					<h2 id="h2">iEMS/ HVAC</h2>
+					<p  id="p2"class="lead mb-0">研華暖通空調能效管理系統（iEMS/HVAC），將人工智慧、雲計算、物聯網、數位孿生等數位化技術與專業知識和經驗相結合，通過精益化控制，提供“一站式”能效管理，從設備管理-異常偵測-能效診斷分析-策略優化，建立閉環管理鏈路。 </p>
+				</div>
+			</div>
+			<div class="row g-0"  id="d3" style="display:none;">
+				<div class="col-lg-6 order-lg-2 text-white showcase-img" >
+					<iframe src="https://advantech.wistia.com/medias/rlbvinb0nm" width="100%" height="100% "  scrolling="NO" frameborder="0"	allowfullscreen></iframe>
+				</div>
+				<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+					<h2>iEMS/ Compressor</h2>
+					<p class="lead mb-0">以InsightAPM設備資產績效管理為基礎的，專注工廠領域的空壓機能效管理產品，通過對設備進行即時管控，精准分析產氣、用氣的情況，快速找出存在浪費的原因。通過AI智能聯控技術，做到產氣壓力恒定、用氣適量供應、無人化管控等方式，大幅降低單位能耗、人力管理及設備保養成本。</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="features-icons bg-light text-center" id="replacement" style="display: none;">
+		<div class="container">
+			<h1 class="mb-5">更換新設備</h1>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+						<div class="features-icons-icon d-flex "><i class="fa-solid m-auto  fa-fire " style="color: RGB(255, 69, 0);"></i></div>
+						<h3>提高效率</h3>
+						<p class="lead mb-0">新設備通常會有更快、更強大的處理能力，並且可以更好地滿足當前的工作需求，這可以幫助提高效率和生產力。</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+						<div class="features-icons-icon d-flex"><i class="fa-solid m-auto  fa-wrench" style="color: RGB(192, 192, 192);"></i></div>
+						<h3>減少故障率</h3>
+						<p class="lead mb-0">舊的設備通常更容易出現故障，並且需要更多的維修成本和時間。</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="features-icons-item mx-auto mb-0 mb-lg-3">
+						<div class="features-icons-icon d-flex"><i class="fa-solid m-auto  fa-gear" style="color:RGB(25, 118, 210);"></i></div>
+						<h3>改善工作環境</h3>
+						
+						<p class="lead mb-0">新設備通常具有更好的設計和功能，可以提供更好的使用體驗和工作環境。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 </body>
 </html>
+<script>
+	var urlParams = new URLSearchParams(window.location.search);
+	// 從參數中取得名字和年齡
+	var rank = urlParams.get('rank');
+	var ice = urlParams.get('ice');
+	var air_dondition = urlParams.get('air_dondition');
+	var air_compression = urlParams.get('air_compression');
+	if (rank=="優良") {
+		$("#ecowatch").css("display", "flex");
+	}
+	if (rank=="普通") {
+		$("#ecowatch").css("display", "flex");
+		$("#hh1").html('⾮常好你有⼀個標準的設備狀態');
+		$("#hh2").html('為了將設備環境變得更健康');
+		if(air_dondition != 0|| ice!=0)
+		{
+			$("#d2").css("display", "flex");
+		}
+		if(air_compression != 0)
+		{
+			if(air_dondition == 0&& ice==0)
+			{
+				$("#d2").css("display", "flex");
+				$("#f2").css("src", "https://advantech.wistia.com/medias/rlbvinb0nm");
+				$("#h2").html('iEMS/ Compressor');
+				$("#h2").html('以InsightAPM設備資產績效管理為基礎的，專注工廠領域的空壓機能效管理產品，通過對設備進行即時管控，精准分析產氣、用氣的情況，快速找出存在浪費的原因。通過AI智能聯控技術，做到產氣壓力恒定、用氣適量供應、無人化管控等方式，大幅降低單位能耗、人力管理及設備保養成本。');
+			}
+			else
+			{
+				$("#d3").css("display", "flex");	
+			}
+		}
+	}
+	if (rank=="注意") {
+		$("#hh1").html('請注意您的設備狀態');
+		$("#hh2").html('為了改善設備環境您需要更全⾯的改善計畫');
+		$("#ecowatch").css("display", "flex");
+		$("#replacement").css("display", "flex");
+		if(air_dondition != 0|| ice!=0)
+		{
+			$("#d2").css("display", "flex");
+		}
+		if(air_compression != 0)
+		{
+			if(air_dondition == 0&& ice==0)
+			{
+				$("#d2").css("display", "flex");
+				$("#f2").css("src", "https://advantech.wistia.com/medias/rlbvinb0nm");
+				$("#h2").html('iEMS/ Compressor');
+				$("#p2").html('以InsightAPM設備資產績效管理為基礎的，專注工廠領域的空壓機能效管理產品，通過對設備進行即時管控，精准分析產氣、用氣的情況，快速找出存在浪費的原因。通過AI智能聯控技術，做到產氣壓力恒定、用氣適量供應、無人化管控等方式，大幅降低單位能耗、人力管理及設備保養成本。');
+			}
+			else
+			{
+				$("#d3").css("display", "flex");	
+			}
+		}
+	}
+</script>
