@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>研華科技-iEMS能源管理系統</title>
+	<title>研華科技-iEMS能源管理系統 </title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
@@ -197,6 +197,8 @@
 
 <script>
  $(document).ready(function(){
+
+  
     $('[data-toggle="tooltip"]').tooltip();
 });
     $( "#sub" ).click(function() {
@@ -275,21 +277,23 @@
         input +="<td>";
         input +=my_point1;
         input +="</td>";
-
+        const date = new Date();
+        const today_year = date.getFullYear();
         var my_point2;
-        if(year>10)
+
+        if(today_year-year>10)
         {
             my_point2 = 5;
         }
-        else if(year>5)
+        else if(today_year-year>5)
         {
             my_point2 = 4;
         }
-        else if(year>3)
+        else if(today_year-year>3)
         {
             my_point2 = 3;
         }
-        else if(year>1)
+        else if(today_year-year>1)
         {
             my_point2 = 2;
         }
@@ -379,8 +383,7 @@
         google.charts.setOnLoadCallback(drawChart);
     });
     google.charts.load('current', {'packages':['corechart']});
-      function drawChart() {
-
+function drawChart() {
 var q1 = 0;
 var q2 = 0;
 var q3 = 0;
@@ -435,6 +438,7 @@ $('#mytable tr').each(function() {
         toatl = q1+q2+q3+q4+q5+q6;
         var rank = "您的飯店評級為";
         var rankpoint;
+
         if(b_rank )
         {
           if(a_rank)
@@ -484,3 +488,4 @@ $('#mytable tr').each(function() {
       }
     
     </script>
+
