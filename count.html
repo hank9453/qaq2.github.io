@@ -63,6 +63,7 @@
                     <option>電燈</option>
                     <option>熱泵、水泵</option>
                     <option>電梯</option>
+                    <option>空壓機</option>
                   </select>
                   <div class="invalid-feedback">
                    請選擇設備
@@ -145,20 +146,24 @@
         <table class="table   table-striped table-hover" id="mytable">
             <thead>
               <tr>
-                <th scope="col">設備名稱</th>
+                <th  scope="col">設備名稱</th>
                 <th scope="col">設備型號</th>
-                <th scope="col">設備電功率</th>
-                <th scope="col">設備數量</th>
-                <th scope="col">運作時數</th>
-                <th scope="col">設備年份</th>
+                <th scope="col" title="(kw/台)" data-toggle="tooltip">設備電功率</th>
+                <th scope="col" title="台" data-toggle="tooltip">設備數量</th>
+                <th scope="col" title="(hr/年)" data-toggle="tooltip">運作時數</th>
+                <th scope="col" title="(kwh/年)" data-toggle="tooltip">設備耗電量</th>
+
+                <th scope="col" title="(kw/台)" data-toggle="tooltip">設備年份</th>
+                <th scope="col">區域</th>
                 <th scope="col">設備耗電量</th>
-                <th scope="col">設備耗能值</th>
                 <th scope="col">設備老舊度</th>
                 <th scope="col">設備運轉度</th>
                 <th scope="col">特殊加權</th>
+
                 <th scope="col">評分</th>
-                <th scope="col">區域</th>
                 <th scope="col">優先性</th>
+
+
               </tr>
             </thead >
             <tbody id="my_insert">
@@ -187,6 +192,10 @@
               </div>
             </div>
           </div>
+    <div class="container">
+
+    </div>
+    
 </div>
 
   
@@ -247,11 +256,15 @@
         input +=time;
 
         input +="</td>";
-        input +="<td>";
-        input +=year;
+        input +="<td id=t_uasge>";
+        input +=power*time*number;
         input +="</td>";
         input +="<td >";
-        input +=power;
+        input +=year;
+
+        input +="</td>";
+        input +="<td >";
+        input +=area;
 
         input +="</td>";
         var my_point1;
@@ -274,8 +287,8 @@
         {
             my_point1 = 1;
         }
-        input +="<td id=t_uasge>";
-        input +=power*number*time;
+        input +="<td >";
+        input +=my_point1;
         input +="</td>";
         const date = new Date();
         const today_year = date.getFullYear();
@@ -352,9 +365,8 @@
         input +="<td id=rank>";
         input +=total.toFixed(2);
         input +="</td>"; 
-        input +="<td>";
-        input +=area;
-        input +="</td>";   
+
+        
         input +="<td id=t_level>";
         if(total>4)
         {
@@ -390,6 +402,7 @@ var q3 = 0;
 var q4 = 0;
 var q5 = 0;
 var q6 = 0;
+var q7 = 0;
 var A=0;
 var B=0;
 var a_rank = 0;
@@ -423,6 +436,10 @@ $('#mytable tr').each(function() {
   if(myTd1.text() == '電梯')
   {
     q6+=parseInt(myTd2.text());
+  }
+  if(myTd1.text() == '空壓機')
+  {
+    q7+=parseInt(myTd2.text());
   }
   if (myTd3.text() == 'A') {
     A++;
@@ -473,7 +490,8 @@ $('#mytable tr').each(function() {
           ['空調系統',  q3],
           ['電燈', q4],
           ['熱泵、水泵',q5],
-          ['電梯',    q6]
+          ['電梯',    q6],
+          ['空壓機',    q7]
         ]);
         var options = {
           title: '使用分佈',height: '500'
