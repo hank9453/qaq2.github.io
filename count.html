@@ -250,8 +250,8 @@
         input +="<td>";
         input +=year;
         input +="</td>";
-        input +="<td id=t_uasge>";
-        input +=power*number*time;
+        input +="<td >";
+        input +=power;
 
         input +="</td>";
         var my_point1;
@@ -274,8 +274,8 @@
         {
             my_point1 = 1;
         }
-        input +="<td>";
-        input +=my_point1;
+        input +="<td id=t_uasge>";
+        input +=power*number*time;
         input +="</td>";
         const date = new Date();
         const today_year = date.getFullYear();
